@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{fragments/head.html :: headFragment}"/>
+<body>
+<h1>고객센터 챗봇</h1>
+
+<div id="chatbox">
+</div>
+
+<input type="text" id="userInput" name="userInput" placeholder="메시지를 입력하세요..." required
+       onkeydown="javascript: if(event.keyCode==13){ enterQuestion(); return false; }">
+<button onclick="enterQuestion()">전송</button>
+
+<script th:inline="javascript">
+  const chatbox = $('#chatbox');
+  const userInput = $('#userInput');
+
+  function enterQuestion() {
+    const data = {
+      userInput: userInput.val()
+    }
+
+    chatbox.append('<p style="text-align: right"><span>' + userInput.val() + '</span>');
+    scrollToBottom()
+    userInput.val('');
+    openModal();
+    postApi('/chat', data, onSuccessResponse, onApiError)
+  }
+
+  function onSuccessResponse(data) {
+    closeModal();
+    chatbox.append('<p><strong>BOT : </strong><span style="color: green">' + data.value + '</span>');
+    scrollToBottom();
+  }
+
+  function scrollToBottom() {
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+</script>
+
+</body>
+</html>

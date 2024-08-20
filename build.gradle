@@ -24,13 +24,27 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// basic
+	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	// lombok
 	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// NLP
+	implementation 'org.apache.opennlp:opennlp-tools:2.0.0'
+	implementation 'org.apache.lucene:lucene-core:8.11.1'
+	implementation 'org.apache.lucene:lucene-analyzers-nori:8.11.1'
+
+	// Redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis:3.1.5'
 }
 
 tasks.named('test') {
