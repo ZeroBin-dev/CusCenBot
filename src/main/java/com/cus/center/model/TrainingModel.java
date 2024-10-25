@@ -10,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TrainingModel {
-  private String question;
+  private String questionId;
+  private String[] questionList;
   private String answer;
 }

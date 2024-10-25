@@ -127,4 +127,10 @@ class CustomerCenterApplicationTests {
     }
   }
 
+  @Test
+  public void 문자자르기(){
+    String text = "플라스틱 용기안에 들어있는 무색-백색의 분말 또는 파우치안에 들어있는 무색-흰	색의 분말";
+    System.out.println("test");
+  }
+
 }

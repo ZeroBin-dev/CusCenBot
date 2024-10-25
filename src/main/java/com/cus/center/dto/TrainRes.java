@@ -7,10 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class ChatRes {
-
-  private String value;
-
+public class TrainRes {
+  private boolean isSuccess;
 }
